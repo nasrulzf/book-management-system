@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  	<definition name="common" template="/WEB-INF/layout/template.jsp" >
+  	</definition>
+  	<definition name="ajax" template="/WEB-INF/layout/ajax.jsp" >
+  	</definition>
+  	<definition name="index" extends="common">
+  		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+  		<put-attribute name="current" value="index" />
+  	</definition>
+  	<definition name="categories" extends="common">
+  		<put-attribute name="body" value="/WEB-INF/jsp/category/categories.jsp" />
+  		<put-attribute name="current" value="master" />
+  	</definition>
+  	<definition name="categoriesForm" extends="ajax">
+  		<put-attribute name="content" value="/WEB-INF/jsp/category/categories-form.jsp" />
+  	</definition>
+  	<definition name="books" extends="common">
+  		<put-attribute name="body" value="/WEB-INF/jsp/book/books.jsp" />
+  		<put-attribute name="current" value="master" />
+  	</definition>
+  	<definition name="booksForm" extends="ajax">
+  		<put-attribute name="content" value="/WEB-INF/jsp/book/books-form.jsp" />
+  	</definition>
+  	<definition name="publishers" extends="common">
+  		<put-attribute name="body" value="/WEB-INF/jsp/publisher/publishers.jsp" />
+  		<put-attribute name="current" value="master" />
+  	</definition>
+  	<definition name="publishersForm" extends="ajax">
+  		<put-attribute name="content" value="/WEB-INF/jsp/publisher/publishers-form.jsp" />
+  	</definition>
+  	<definition name="authors" extends="common">
+  		<put-attribute name="body" value="/WEB-INF/jsp/author/authors.jsp" />
+  		<put-attribute name="current" value="master" />
+  	</definition>
+  	<definition name="authorsForm" extends="ajax">
+  		<put-attribute name="content" value="/WEB-INF/jsp/author/authors-form.jsp" />
+  	</definition>
+</tiles-definitions>
