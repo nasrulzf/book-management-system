@@ -52,7 +52,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Master <span class="caret"></span></a>
                 <ul class="dropdown-menu">
 				  <li><a href='<spring:url value="/categories.htm" />'>Category</a></li>
-                  <li><a href="#">Book</a></li>
+                  <li><a href="<spring:url value="/books.htm" />">Book</a></li>
                   <li><a href="<spring:url value="/publishers.htm" />">Publisher</a></li>
                   <li><a href="<spring:url value="/author.htm" />">Author</a></li>
                 </ul>

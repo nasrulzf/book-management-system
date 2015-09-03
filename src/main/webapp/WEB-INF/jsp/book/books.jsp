@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
@@ -26,34 +27,42 @@
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach items="${listBook}" var="book">
 						<tr>
-							<td>1</td>
-							<td>Cara Mudah Belajar</td>
-							<td>Nasrul A Gifari</td>
-							<td>ANDI Yogyakarta</td>
+							<td>${book.isbn}</td>
+							<td>${book.title}</td>
+							<td>
+								<c:forEach items="${book.authors}" var="author">
+									${author.firstName} ${author.lastName}, 
+								</c:forEach>
+							</td>
+							<td>${book.publisher.name}</td>
 							<td>
 								<a class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-remove"></i></a>
 							</td>
 						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				<nav class="text-center">
 				  <ul class="pagination" style="margin-top:0px; margin-bottom:0px;">
+				  	<c:if test="${hasPrev == true}">
 					<li>
-					  <a href="#" aria-label="Previous">
+					  <a href='<spring:url value="/books/${curPages - 1}.htm" />' aria-label="Previous">
 						<span aria-hidden="true">&laquo;</span>
 					  </a>
 					</li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
+					</c:if>
+					<c:forEach begin="1" end="${totalPages}" step="1" var="x">
+					<li><a href='<spring:url value="/books/${x}.htm" />'>${x}</a></li>
+					</c:forEach>
+					<c:if test="${hasNext == true}">
 					<li>
-					  <a href="#" aria-label="Next">
+					  <a href='<spring:url value="/books/${curPages + 1}.htm" />' aria-label="Next">
 						<span aria-hidden="true">&raquo;</span>
 					  </a>
 					</li>
+					</c:if>
 				  </ul>
 				</nav>
 			</div>
